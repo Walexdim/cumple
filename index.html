@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Cumpleaños ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff6f91;
+      color: white;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 15px;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Corazones */
+    .heart {
+      position: fixed;
+      color: red;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música -->
+  <audio autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>Feliz Cumpleaños Mi Amor ❤️</h1>
+    <p>Hoy es un día muy especial porque nació la persona más importante de mi vida.</p>
+
+    <button onclick="mostrarSeccion('amor')">Lo que siento por ti 💌</button>
+    <button onclick="mostrarSeccion('recuerdos')">Nuestros momentos ✨</button>
+    <button onclick="mostrarSeccion('futuro')">Nuestro futuro 💖</button>
+
+    <div id="amor" class="hidden card">
+      <p>
+        Quiero que sepas que te amo con todo mi corazón.
+        A pesar de la distancia, siempre estás presente en cada pensamiento mío.
+        Eres lo mejor que me ha pasado.
+      </p>
+    </div>
+
+    <div id="recuerdos" class="hidden card">
+      <p>
+        Cada llamada, cada mensaje, cada risa contigo es un recuerdo que guardo con todo mi amor.
+        Aunque no tengamos muchas fotos, tengo miles de momentos contigo en mi corazón.
+      </p>
+    </div>
+
+    <div id="futuro" class="hidden card">
+      <p>
+        Sueño con el día en que estemos juntos sin distancia.
+        Con abrazarte, con caminar contigo, con vivir todo lo que aún nos falta.
+        Y sé que ese día llegará ❤️
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.getElementById(id).classList.toggle('hidden');
+    }
+
+    // Generar corazones
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }, 300);
+  </script>
+
+</body>
+</html>
